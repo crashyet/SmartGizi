@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Halo, Adhitya 👋"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="12dp" />
+
+        <!-- KPI Cards (Grid 2 kolom) -->
+        <GridLayout
+            android:id="@+id/gridKpi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:useDefaultMargins="true">
+
+            <include layout="@layout/item_card_kpi"
+                android:id="@+id/cardAnakTerdaftar" />
+            <include layout="@layout/item_card_kpi"
+                android:id="@+id/cardSurveyHariIni" />
+            <include layout="@layout/item_card_kpi"
+                android:id="@+id/cardStunting" />
+            <include layout="@layout/item_card_kpi"
+                android:id="@+id/cardGiziNormal" />
+
+        </GridLayout>
+
+        <!-- Chart Placeholder -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trend Status Gizi (6 Bulan Terakhir)"
+            android:textStyle="bold"
+            android:paddingTop="24dp" />
+
+        <FrameLayout
+            android:id="@+id/chartContainer"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#EAEAEA"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(Chart Placeholder)"
+                android:textSize="14sp" />
+
+        </FrameLayout>
+
+        <!-- List Ringkas -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anak Risiko Tinggi"
+            android:textStyle="bold"
+            android:paddingTop="24dp" />
+
+        <LinearLayout
+            android:id="@+id/listRisiko"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Anak A (5 tahun)"
+                android:padding="4dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Anak B (3 tahun)"
+                android:padding="4dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnLihatSemua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lihat Semua" />
+
+    </LinearLayout>
+</ScrollView>

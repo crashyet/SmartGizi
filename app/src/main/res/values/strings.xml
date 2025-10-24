@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Smart Gizi</string>
+    <string name="name">Nama</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="btLogIn">Masuk Sistem</string>
+    <string name="backHome">Kembali ke Beranda</string>
+    <string name="forgotPassword">Lupa Password?</string>
+</resources>
