@@ -12,4 +12,9 @@
     <color name="primary_dark">#303F9F</color>
     <color name="accent">#FF4081</color>
     <color name="blueMaterial">#1565c0</color>
+
+    <color name="birumuda">#60A5FA</color>
+    <color name="tipisbirumuda">#1A60A5FA</color>
+    <color name="hijau">#22C55E</color>
+    <color name="orange">#F59E0B</color>
 </resources>

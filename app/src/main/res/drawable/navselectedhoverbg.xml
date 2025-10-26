@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Hanya saat menu sedang dipilih -->
+    <item android:drawable="@drawable/navselectedhover" android:state_checked="true"/>
+    <!-- Item lain transparan -->
+    <item android:drawable="@android:color/transparent"/>
+
+</selector>

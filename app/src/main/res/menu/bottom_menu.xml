@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dasbor"
+        android:icon="@drawable/dasbor"
+        android:title="Dasbor"/>
+    <item
+        android:id="@+id/balita"
+        android:icon="@drawable/balita"
+        android:title="Balita"/>
+    <item
+        android:id="@+id/data"
+        android:icon="@drawable/data"
+        android:title="Data"/>
+    <item
+        android:id="@+id/survey"
+        android:icon="@drawable/survey"
+        android:title="Survey"/>
+    <item
+        android:id="@+id/pengaturan"
+        android:icon="@drawable/pengaturan"
+        android:title="Pengaturan"/>
+
+</menu>
