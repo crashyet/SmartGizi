@@ -11,15 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartStunting">
-        <activity
-            android:name=".kader.DasborKader"
+
+        <activity android:name=".kader.DasboardKaderViewAll"
             android:exported="false" />
-        <activity
-            android:name=".kader.Dasbor"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".auth.LoginActivity" -->
-        <!-- android:exported="true"> -->
-        <!-- </activity> -->
+
+        <activity android:name=".kader.DasborKader"
+            android:exported="false" />
+
+        <activity android:name=".kader.Dasbor"
+            android:exported="false" />
+
         <activity
             android:name=".kader.DasborKaderActivity"
             android:exported="true"
@@ -27,10 +28,10 @@
             android:theme="@style/Theme.SmartStunting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

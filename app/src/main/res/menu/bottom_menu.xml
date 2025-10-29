@@ -2,23 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/dasbor"
-        android:icon="@drawable/dasbor"
+        android:icon="@drawable/menu_dasbor"
         android:title="Dasbor"/>
     <item
         android:id="@+id/balita"
-        android:icon="@drawable/balita"
-        android:title="Balita"/>
+        android:icon="@drawable/menu_pengukuran"
+        android:title="Pengukuran"/>
     <item
         android:id="@+id/data"
-        android:icon="@drawable/data"
+        android:icon="@drawable/menu_data"
         android:title="Data"/>
     <item
         android:id="@+id/survey"
-        android:icon="@drawable/survey"
+        android:icon="@drawable/menu_survey"
         android:title="Survey"/>
     <item
         android:id="@+id/pengaturan"
-        android:icon="@drawable/pengaturan"
+        android:icon="@drawable/menu_pengaturan"
         android:title="Pengaturan"/>
-
 </menu>

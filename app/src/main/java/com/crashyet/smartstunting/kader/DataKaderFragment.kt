@@ -1,60 +1,61 @@
 package com.crashyet.smartstunting.kader
 
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.crashyet.smartstunting.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DataKaderFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DataKaderFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate layout fragment
         return inflater.inflate(R.layout.fragment_data_kader, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DataKaderFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DataKaderFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Ambil referensi view dari layout
+        val tabPengukuran = view.findViewById<TextView>(R.id.tabPengukuran)
+        val tabResiko = view.findViewById<TextView>(R.id.tabResiko)
+        val containerPengukuran = view.findViewById<View>(R.id.containerPengukuran)
+        val containerResiko = view.findViewById<View>(R.id.containerResiko)
+
+        // Default tampilan saat fragment pertama kali dibuka
+        containerPengukuran.visibility = View.VISIBLE
+        containerResiko.visibility = View.GONE
+        tabPengukuran.setBackgroundResource(R.drawable.bg_weclome)
+        tabPengukuran.setTextColor(Color.WHITE)
+        tabResiko.setBackgroundResource(R.color.white)
+        tabResiko.setTextColor(Color.DKGRAY)
+
+        // Saat tab Pengukuran diklik
+        tabPengukuran.setOnClickListener {
+            containerPengukuran.visibility = View.VISIBLE
+            containerResiko.visibility = View.GONE
+
+            tabPengukuran.setBackgroundResource(R.drawable.bg_weclome)
+            tabPengukuran.setTextColor(Color.WHITE)
+            tabResiko.setBackgroundResource(R.color.white)
+            tabResiko.setTextColor(Color.DKGRAY)
+        }
+
+        // Saat tab Resiko diklik
+        tabResiko.setOnClickListener {
+            containerPengukuran.visibility = View.GONE
+            containerResiko.visibility = View.VISIBLE
+
+            tabResiko.setBackgroundResource(R.drawable.bg_weclome)
+            tabResiko.setTextColor(Color.WHITE)
+            tabPengukuran.setBackgroundResource(R.color.white)
+            tabPengukuran.setTextColor(Color.DKGRAY)
+        }
     }
 }
