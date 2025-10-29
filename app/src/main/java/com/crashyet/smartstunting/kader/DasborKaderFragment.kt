@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.content.Intent
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.crashyet.smartstunting.R
 import com.github.mikephil.charting.charts.LineChart
@@ -19,50 +22,90 @@ class DasborKaderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate layout fragment
         return inflater.inflate(R.layout.fragment_dasbor_kader, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Ambil referensi ke LineChart dari layout
         val lineChart = view.findViewById<LineChart>(R.id.lineChart)
-
-        // Setup chart-nya
         setupLineChart(lineChart)
+
+        val kaderviewall_container = view.findViewById<LinearLayout>(R.id.kaderviewall_container)
+        kaderviewall_container.setOnClickListener {
+            val intent = Intent(requireContext(), DasboardKaderViewAll::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupLineChart(lineChart: LineChart) {
-        // Contoh data — bisa kamu ganti dengan data dinamis
-        val entries = listOf(
-            Entry(1f, 10f),
-            Entry(2f, 15f),
-            Entry(3f, 8f),
-            Entry(4f, 18f),
-            Entry(5f, 13f),
-            Entry(6f, 20f)
+        // ====== 1️⃣ Contoh data dummy (bisa nanti diganti dari database atau API) ======
+        val dataBeratBadan = listOf(
+            Entry(1f, 10.3f),
+            Entry(2f, 15.3f),
+            Entry(3f, 0f),
+            Entry(4f, 14f),
+            Entry(5f, 0f)
         )
 
-        val dataSet = LineDataSet(entries, "Survey per Hari").apply {
+        val dataJumlahPengukuran = listOf(
+            Entry(1f, 1f),
+            Entry(2f, 1f),
+            Entry(3f, 0f),
+            Entry(4f, 1f),
+            Entry(5f, 0f)
+        )
+
+        val dataPersentaseGiziNormal = listOf(
+            Entry(1f, 0f),
+            Entry(2f, 0f),
+            Entry(3f, 0f),
+            Entry(4f, 0f),
+            Entry(5f, 0f)
+        )
+
+        // ====== 2️⃣ Buat 3 dataset berbeda ======
+
+        val dataSetBerat = LineDataSet(dataBeratBadan, "Rata-rata Berat Badan (kg)").apply {
             color = Color.parseColor("#2196F3") // Biru
-            valueTextColor = Color.BLACK
             lineWidth = 2.5f
-            circleRadius = 5f
+            circleRadius = 4f
             setCircleColor(Color.parseColor("#2196F3"))
             setDrawCircleHole(false)
-            setDrawValues(true)
-            mode = LineDataSet.Mode.CUBIC_BEZIER // Biar halus
+            valueTextColor = Color.BLACK
+            mode = LineDataSet.Mode.CUBIC_BEZIER
         }
 
-        val lineData = LineData(dataSet)
+        val dataSetPengukuran = LineDataSet(dataJumlahPengukuran, "Jumlah Pengukuran").apply {
+            color = Color.parseColor("#4CAF50") // Hijau
+            lineWidth = 2.5f
+            circleRadius = 4f
+            setCircleColor(Color.parseColor("#4CAF50"))
+            setDrawCircleHole(false)
+            valueTextColor = Color.BLACK
+            mode = LineDataSet.Mode.CUBIC_BEZIER
+        }
+
+        val dataSetGizi = LineDataSet(dataPersentaseGiziNormal, "Persentase Gizi Normal (%)").apply {
+            color = Color.parseColor("#FF9800") // Oranye
+            lineWidth = 2.5f
+            circleRadius = 4f
+            setCircleColor(Color.parseColor("#FF9800"))
+            setDrawCircleHole(false)
+            valueTextColor = Color.BLACK
+            mode = LineDataSet.Mode.CUBIC_BEZIER
+        }
+
+        // ====== 3️⃣ Gabungkan ke LineData ======
+        val lineData = LineData(dataSetBerat, dataSetPengukuran, dataSetGizi)
         lineChart.data = lineData
 
+        // ====== 4️⃣ Styling chart ======
         with(lineChart) {
             xAxis.apply {
                 position = XAxis.XAxisPosition.BOTTOM
                 textColor = Color.DKGRAY
                 setDrawGridLines(false)
+                granularity = 1f
             }
 
             axisLeft.apply {
@@ -79,6 +122,8 @@ class DasborKaderFragment : Fragment() {
             animateY(1000)
         }
 
+        // Refresh chart
         lineChart.invalidate()
     }
+
 }

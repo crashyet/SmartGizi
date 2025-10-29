@@ -19,13 +19,14 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/white" />
+        android:background="@color/white"/>
 
     <!-- ======================
          Bottom Navigation
     ======================= -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
+        app:itemBackground="@drawable/bg_tipisbirumuda"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="?android:attr/windowBackground"
@@ -33,10 +34,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_menu"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
+        app:itemIconTint="@color/botmenu_color"
+        app:itemTextColor="@color/botmenu_color"
         app:itemIconSize="24dp"
         app:labelVisibilityMode="labeled"
+        app:itemTextAppearanceActive="@style/BottomNavText"
+        app:itemTextAppearanceInactive="@style/BottomNavText"
         android:elevation="8dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

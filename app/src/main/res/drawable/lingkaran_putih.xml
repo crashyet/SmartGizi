@@ -6,7 +6,7 @@
     <solid android:color="#FFFFFFFF" />
 
     <!-- Rounded corner -->
-    <corners android:radius="555dp" />
+    <corners android:radius="7dp" />
 
     <!-- Sedikit shadow / elevasi simulasi -->
     <padding
