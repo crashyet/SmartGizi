@@ -75,7 +75,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:paddingVertical="12dp"
+        android:paddingVertical="6dp"
+        android:paddingHorizontal="6dp"
+        android:layout_marginHorizontal="49dp"
+        android:background="@drawable/bg_lilroundedwhite"
+        android:elevation="1dp"
         app:layout_constraintTop_toBottomOf="@id/header_profile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -90,7 +94,7 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:paddingVertical="8dp"
-            android:background="@drawable/bg_weclome"
+            android:background="@drawable/bg_hijautoska"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -102,8 +106,8 @@
             android:text="Balita Beresiko"
             android:textSize="14sp"
             android:paddingVertical="8dp"
-            android:background="@color/white"
-            android:textColor="@android:color/darker_gray" />
+            android:background="@android:color/white"
+            android:textColor="@color/dark_gray" />
     </LinearLayout>
     <!-- ======================
      Isi Data Pengukuran
@@ -130,14 +134,19 @@
                 android:orientation="vertical"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="16dp"
-                android:background="@color/birumuda"
+                android:background="@drawable/bg_lilroundedwhite"
+                android:elevation="1dp"
                 android:paddingHorizontal="12dp"
-                android:paddingVertical="12dp">
+                android:paddingVertical="12dp"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                >
 
                 <!-- Baris 1 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
                     android:orientation="horizontal"
                     android:weightSum="2"
                     android:gravity="center">
@@ -168,14 +177,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Survey Hari Ini"
+                                    android:text="Total Pengukuran"
                                     android:textColor="@color/black"
                                     android:textSize="14sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10"
+                                    android:text="7"
                                     android:textColor="@color/black"
                                     android:textSize="28sp"
                                     android:textStyle="bold"
@@ -184,9 +193,9 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Data survey yang masuk hari ini"
+                                    android:text="Jumlah pengukuran tercatat"
                                     android:textSize="12sp"
-                                    android:textColor="@color/teal_200"
+                                    android:textColor="@color/hijau"
                                     android:layout_marginTop="2dp" />
                             </LinearLayout>
 
@@ -223,14 +232,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Survey Bulan Ini"
+                                    android:text="Total Balita"
                                     android:textColor="@color/black"
                                     android:textSize="14sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="20"
+                                    android:text="2"
                                     android:textColor="@color/black"
                                     android:textSize="28sp"
                                     android:textStyle="bold"
@@ -239,7 +248,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Total survey bulan ini"
+                                    android:text="Balita yang diukur"
                                     android:textSize="12sp"
                                     android:textColor="@color/hijau"
                                     android:layout_marginTop="2dp" />
@@ -257,6 +266,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+
                     android:orientation="horizontal"
                     android:weightSum="2"
                     android:gravity="center">
@@ -287,14 +298,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Survey Hari Ini"
+                                    android:text="Pengukuran Bulan Ini"
                                     android:textColor="@color/black"
                                     android:textSize="14sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10"
+                                    android:text="0"
                                     android:textColor="@color/black"
                                     android:textSize="28sp"
                                     android:textStyle="bold"
@@ -303,9 +314,9 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Data survey yang masuk hari ini"
+                                    android:text="Meningkat dari bulan lalu"
                                     android:textSize="12sp"
-                                    android:textColor="@color/teal_200"
+                                    android:textColor="@color/hijau"
                                     android:layout_marginTop="2dp" />
                             </LinearLayout>
 
@@ -342,14 +353,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Survey Bulan Ini"
+                                    android:text="Kasus Stunting"
                                     android:textColor="@color/black"
                                     android:textSize="14sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="20"
+                                    android:text="0"
                                     android:textColor="@color/black"
                                     android:textSize="28sp"
                                     android:textStyle="bold"
@@ -358,9 +369,9 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Total survey bulan ini"
+                                    android:text="Balita dengan status stunting"
                                     android:textSize="12sp"
-                                    android:textColor="@color/hijau"
+                                    android:textColor="@color/orangetua"
                                     android:layout_marginTop="2dp" />
                             </LinearLayout>
 
@@ -376,6 +387,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+
                     android:weightSum="2"
                     android:gravity="start">
 
@@ -405,14 +418,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Survey Hari Ini"
+                                    android:text="Gizi Buruk"
                                     android:textColor="@color/black"
                                     android:textSize="14sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10"
+                                    android:text="0"
                                     android:textColor="@color/black"
                                     android:textSize="28sp"
                                     android:textStyle="bold"
@@ -421,7 +434,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Data survey yang masuk hari ini"
+                                    android:text="Balita dengan gizi buruk"
                                     android:textSize="12sp"
                                     android:textColor="@color/teal_200"
                                     android:layout_marginTop="2dp" />
@@ -440,7 +453,7 @@
      Grafik Bar Chart
 ======================= -->
             <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/viewallchart"
+                android:id="@+id/TrendPengukuran6bulan"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
                 android:layout_marginTop="8dp"
