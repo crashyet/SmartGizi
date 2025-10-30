@@ -82,7 +82,8 @@
         android:elevation="1dp"
         app:layout_constraintTop_toBottomOf="@id/header_profile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="31dp">
 
         <TextView
             android:id="@+id/tabPengukuran"
@@ -461,12 +462,152 @@
                 android:background="@android:color/white"
                 android:elevation="2dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
-                tools:listitem="@layout/item_balita" />
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/white">
+
+                <!-- ========== HEADER ========== -->
+                <TextView
+                    android:id="@+id/tvHeaderTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data Pengukuran Balita"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvHeaderDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Tabel interaktif untuk monitoring dan analisis"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="13sp" />
+
+                <!-- Garis pembatas -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@color/light_gray" />
+
+                <!-- ========== MENU BAR ========== -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <!-- Bagian kiri: Filter + Search -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <!-- Tombol Filter -->
+                        <ImageButton
+                            android:id="@+id/btnFilter"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Filter"
+                            android:src="@drawable/ic_filter" />
+
+                        <!-- Search Field -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="24dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_search_field"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:contentDescription="Cari"
+                                android:src="@drawable/ic_search"
+                                app:tint="@color/dark_gray" />
+
+                            <EditText
+                                android:id="@+id/etSearch"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:hint="Cari"
+                                android:paddingStart="6dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Bagian kanan: Tambah + Menu -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:gravity="end|center_vertical"
+                        android:orientation="horizontal">
+
+                        <!-- Tombol Tambah (+ teks) -->
+                        <LinearLayout
+                            android:id="@+id/btnAdd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:paddingHorizontal="12dp"
+                            android:background="@drawable/bg_btn_tambah"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_plus"
+                                android:tint="@color/white"
+                                android:contentDescription="Tambah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:text="Tambah"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Tombol Menu (3 titik) -->
+                        <ImageButton
+                            android:id="@+id/btnMenu"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Menu"
+                            android:src="@drawable/ic_more" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ========== DAFTAR ITEM ========== -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="12dp"
+                    tools:listitem="@layout/container_item_balita" />
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
@@ -490,13 +631,149 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Daftar Balita Beresiko"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:paddingBottom="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- ========== HEADER ========== -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <!-- Judul Header -->
+                    <TextView
+                        android:id="@+id/tvHeaderBalResiko"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Balita Berisiko"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <!-- Tombol Export (+ teks) -->
+                    <LinearLayout
+                        android:id="@+id/btnAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:background="@drawable/bg_btn_tambah"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_export"
+                            android:tint="@color/white"
+                            android:contentDescription="Export" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="Export"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Garis pembatas -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@color/light_gray" />
+
+                <!-- ========== MENU BAR ========== -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <!-- Bagian kiri: Filter + Search -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <!-- Tombol Filter -->
+                        <ImageButton
+                            android:id="@+id/resikoFilter"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Filter"
+                            android:src="@drawable/ic_filter" />
+
+                        <!-- Search Field -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="24dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_search_field"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:contentDescription="Cari"
+                                android:src="@drawable/ic_search"
+                                app:tint="@color/dark_gray" />
+
+                            <EditText
+                                android:id="@+id/resikoSearch"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:hint="Cari"
+                                android:paddingStart="6dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Bagian kanan: Tambah  -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:gravity="end|center_vertical"
+                        android:orientation="horizontal">
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ========== CONTAINER (KONTEN) ========== -->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp">
+
+                    <!-- Taruh konten balita di sini -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Contoh item balita (bisa di-include atau pakai RecyclerView) -->
+                        <include layout="@layout/item_balita" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
