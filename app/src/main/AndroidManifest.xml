@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,27 +13,62 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartStunting">
-
-        <activity android:name=".kader.DasboardKaderViewAll"
+        <activity
+            android:name=".admin.data.DataPuskesmas"
             android:exported="false" />
-
-        <activity android:name=".kader.DasborKader"
+        <activity
+            android:name=".admin.data.DataPosyandu"
             android:exported="false" />
-
-        <activity android:name=".kader.Dasbor"
+        <activity
+            android:name=".admin.data.AlatAntropometri"
             android:exported="false" />
-
+        <activity
+            android:name=".admin.data.PetugasPosyandu"
+            android:exported="false" />
+        <activity
+            android:name=".admin.data.DataKader"
+            android:exported="false" />
+        <activity
+            android:name=".admin.data.DataKeluarga"
+            android:exported="false" />
+        <activity
+            android:name=".admin.data.DataAnak"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pengukuran.BalitaBerisiko"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pengukuran.AdminPengukuran"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AdminDashboardAll"
+            android:exported="false" />
+        <activity
+            android:name=".admin.ViewAllMenu"
+            android:exported="false" />
+        <activity
+            android:name=".kader.DasboardKaderViewAll"
+            android:exported="false" />
         <activity
             android:name=".kader.DasborKaderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AdminBaseLayout"
+            android:exported="false" />
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.splash1"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.SmartStunting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

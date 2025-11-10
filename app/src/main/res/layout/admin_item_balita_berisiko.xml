@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_row"
+    android:padding="12dp"
+    android:layout_marginVertical="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvNama"
+                android:text="Eko Gantasari"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTanggal"
+                android:text="08 Oktober 2025 • 11 bln"
+                android:textSize="12sp"
+                android:textColor="#777"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvJenisKelamin"
+            android:text="Laki-laki"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:background="@drawable/bg_gender_laki"
+            android:layout_marginStart="8dp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EEE"
+        android:layout_marginVertical="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvDetail"
+        android:text="BB: 9 kg | TB: 80 cm | Gizi: Baik"
+        android:textSize="13sp"
+        android:textColor="#444"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btnLihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lihat"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_green_dark"/>
+
+        <Button
+            android:id="@+id/btnHapus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hapus"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+</LinearLayout>

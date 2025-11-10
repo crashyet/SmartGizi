@@ -101,6 +101,7 @@
                 app:cardUseCompatPadding="true">
 
                 <EditText
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@android:color/transparent"
@@ -130,6 +131,7 @@
                 app:cardUseCompatPadding="true">
 
                 <EditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@android:color/transparent"
@@ -153,6 +155,7 @@
 
             <!-- TOMBOL LOGIN -->
             <Button
+                android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_login"

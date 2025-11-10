@@ -18,4 +18,22 @@
         <item name="android:lineSpacingExtra">12dp</item> <!-- Tambah jarak antara icon dan teks -->
     </style>
 
+    <style name="UserCellStyle">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="cr6">
+        <item name="cornerSize">6dp</item>
+    </style>
+    <style name="cr4">
+        <item name="cornerSize">4dp</item>
+    </style>
+    <style name="cr12">
+        <item name="cornerSize">12dp</item>
+    </style>
+
 </resources>

@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.HomeFragment">
+
+    <!-- ======================
+         Bagian Atas: Profil
+    ======================= -->
+    <LinearLayout
+        android:id="@+id/header_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="48dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/lingkaran_putih"
+            android:padding="13dp"
+            android:src="@drawable/ic_stafkader" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kader Posyandu"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textViewUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rina Kusumawati, S.Kes"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageViewNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lingkaran_putih"
+            android:padding="13dp"
+            android:src="@drawable/ic_lonceng" />
+    </LinearLayout>
+
+    <!-- ======================
+         ScrollView isi dashboard
+    ======================= -->
+    <ScrollView
+        android:id="@+id/scrollViewContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/header_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal"
+            android:clipToPadding="false"
+            android:clipChildren="false">
+
+            <!--    Hero-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_weclome">
+
+                        <!-- Bagian teks -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:orientation="vertical"
+                            android:paddingBottom="10px">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Pantau Data Perkembangan Balita di Sistemmu!"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kelola hasil pengukuran dan pastikan data selalu akurat."
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:layout_marginTop="4dp"
+                                android:paddingBottom="5dp"/>
+
+                            <TextView
+                                android:id="@+id/btn_kelola"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="17dp"
+                                android:text="Mulai Kelola"
+                                android:textSize="12sp"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:background="@drawable/lingkaran_putih"
+                                android:padding="6dp"
+                                android:clickable="true"
+                                android:focusable="true"/>
+                        </LinearLayout>
+
+                        <!-- Gambar bayi -->
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="132dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/hero_bayi"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"/>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!--            header fitur utama-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fitur Utama"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <LinearLayout
+                    android:id="@+id/allfitur_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View all"
+                        android:textSize="14sp"
+                        android:textColor="@color/teal_200"/>
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/ic_arrowright"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--            card Fitur Utama-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:weightSum="3">
+
+                <!-- Card 1 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/white">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginEnd="31dp"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_gravity="start">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_penggaris"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pengukuran"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_gear"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="0dp"/>
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card 2 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/white">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginEnd="31dp"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_gravity="start">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_tambahdata"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tambah Data"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_datas"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="0dp"/>
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card 3 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/white">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginEnd="31dp"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_gravity="start">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_papan"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Survey"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_surveys"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="0dp"/>
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <!--header dashboard-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Dashboard"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+                <LinearLayout
+                    android:id="@+id/adminDashboard_viewall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View all"
+                        android:textSize="14sp"
+                        android:textColor="@color/teal_200"/>
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/ic_arrowright"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ======================
+                 Dua Card Statistik
+            ======================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <!-- Card 1 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/white">
+
+                    <!-- Ubah jadi horizontal -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:orientation="horizontal"
+                        android:padding="14dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Bagian kiri: teks -->
+
+                        <!-- Bagian kanan: ikon -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Survey Hari Ini"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="10"
+                                android:textColor="@color/black"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Data survey yang masuk hari ini"
+                                android:textColor="@color/teal_200"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_survey"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- Card 2 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/white">
+
+                    <!-- Ubah jadi horizontal -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:orientation="horizontal"
+                        android:padding="14dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Bagian kiri: teks -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Survey Bulan Ini"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="20"
+                                android:textColor="@color/black"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total survey bulan ini"
+                                android:textSize="12sp"
+                                android:textColor="@color/hijau"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+
+                        <!-- Bagian kanan: ikon -->
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_kalender"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <!-- Card 3 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/white">
+
+                    <!-- Ubah jadi horizontal -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:orientation="horizontal"
+                        android:padding="14dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Bagian kiri: teks -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Anak Aktif"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="25"
+                                android:textColor="@color/black"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Anak yang terdaftar aktif"
+                                android:textSize="12sp"
+                                android:textColor="@color/birumuda"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+
+                        <!-- Bagian kanan: ikon -->
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_orangorang"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card 4 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/white">
+
+                    <!-- Ubah jadi horizontal -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:orientation="horizontal"
+                        android:padding="14dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Bagian kiri: teks -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Belum Survey"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5"
+                                android:textColor="@color/black"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Anak yang belum survey hari ini"
+                                android:textSize="12sp"
+                                android:textColor="@color/mybeyellow"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+
+                        <!-- Bagian kanan: ikon -->
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_jam"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <!-- Card 3 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/white">
+
+                    <!-- Ubah jadi horizontal -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:orientation="horizontal"
+                        android:padding="14dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Bagian kiri: teks -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Pengukuran"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2"
+                                android:textColor="@color/black"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Anak yang terdaftar aktif"
+                                android:textSize="12sp"
+                                android:textColor="@color/pink"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+
+                        <!-- Bagian kanan: ikon -->
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_timbangan"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card 4 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/white">
+
+                    <!-- Ubah jadi horizontal -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:orientation="horizontal"
+                        android:padding="14dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Bagian kiri: teks -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kasus Stunting"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4"
+                                android:textColor="@color/black"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total survey bulan ini"
+                                android:textSize="12sp"
+                                android:textColor="@color/orange"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+
+                        <!-- Bagian kanan: ikon -->
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_warning"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- ======================
+                 Grafik Bar Chart
+            ======================= -->
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white"
+                android:elevation="2dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
