@@ -9,5 +9,7 @@ data class Balita(
     val petugas: String,
     val status: String,
     val gizi: String,
+    val posisiMenimbang: String,
+    val umurBalita: String,
     var expanded: Boolean = false
 )

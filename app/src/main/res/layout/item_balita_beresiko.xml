@@ -10,13 +10,14 @@
 
     <!-- ======== HEADER (klik untuk buka/tutup detail) ======== -->
     <LinearLayout
-        android:id="@+id/headerLayout"
+        android:id="@+id/headerLayoutResiko"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        android:paddingVertical="8dp">
 
         <!-- Foto / Icon anak -->
         <ImageView
@@ -36,31 +37,31 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvNama"
+                android:id="@+id/tvNamaResiko"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Eko Gentasari"
+                android:text="Rizky Karangturi"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/tvTanggal"
+                android:id="@+id/tvTanggalResiko"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="08 Oktober 2025 • 11 bln"
+                android:text="20 Mei 2020"
                 android:textColor="@color/dark_gray"
                 android:textSize="12sp"/>
         </LinearLayout>
 
-        <!-- Status gizi -->
+        <!-- Jenis Kelamin -->
         <TextView
-            android:id="@+id/tvStatus"
+            android:id="@+id/tvJenisKelaminResiko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingVertical="4dp"
             android:paddingHorizontal="8dp"
-            android:text="Normal"
+            android:text="Laki-laki"
             android:textColor="@color/hijau"
             android:textSize="12sp"
             android:backgroundTint="@color/tipishijau"
@@ -70,14 +71,15 @@
 
     <!-- ======== DETAIL (expand saat diklik) ======== -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/detailLayout"
+        android:id="@+id/detailLayoutResiko"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="16dp"
+        >
+        <!--android:visibility="gone"-->
 
-        <!-- BB -->
+        <!-- Label BB -->
         <TextView
             android:id="@+id/labelBB"
             android:layout_width="0dp"
@@ -90,16 +92,16 @@
             app:layout_constraintHorizontal_chainStyle="spread"/>
 
         <TextView
-            android:id="@+id/tvBB"
+            android:id="@+id/tvBbResiko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9 kg"
+            android:text="12 kg"
             android:textSize="13sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/labelBB"
             app:layout_constraintStart_toStartOf="@id/labelBB"/>
 
-        <!-- TB -->
+        <!-- Label TB -->
         <TextView
             android:id="@+id/labelTB"
             android:layout_width="0dp"
@@ -108,124 +110,174 @@
             android:textSize="13sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/labelBB"
-            app:layout_constraintEnd_toStartOf="@id/labelPetugas"/>
+            app:layout_constraintEnd_toStartOf="@id/labelLvlRisiko"/>
 
         <TextView
-            android:id="@+id/tvTB"
+            android:id="@+id/tvTbResiko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="80 cm"
+            android:text="95 cm"
             android:textSize="13sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/labelTB"
             app:layout_constraintStart_toStartOf="@id/labelTB"/>
 
-        <!-- Petugas -->
+        <!-- Label Level Risiko -->
         <TextView
-            android:id="@+id/labelPetugas"
+            android:id="@+id/labelLvlRisiko"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Level Risiko"
             android:textSize="13sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/labelTB"
-            app:layout_constraintEnd_toStartOf="@id/tvGizi"/>
+            app:layout_constraintEnd_toStartOf="@id/labelStatusGizi"/>
 
         <TextView
-            android:id="@+id/tvPetugas"
+            android:id="@+id/tvLvlRisiko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rendah"
             android:textSize="13sp"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/labelPetugas"
-            app:layout_constraintStart_toStartOf="@id/labelPetugas"/>
-
-        <TextView
-            android:id="@+id/labelStatusGizi"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Level Risiko"
-            android:textSize="13sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/labelTB"
-            app:layout_constraintEnd_toStartOf="@id/tvGizi"/>
+            android:textColor="@color/hijau"
+            app:layout_constraintTop_toBottomOf="@id/labelLvlRisiko"
+            app:layout_constraintStart_toStartOf="@id/labelLvlRisiko"/>
 
         <!-- Status Gizi -->
         <TextView
-            android:id="@+id/tvGizi"
+            android:id="@+id/labelStatusGizi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status Gizi"
+            android:textSize="13sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvStatusGiziResiko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gizi Baik"
             android:textSize="13sp"
             android:textColor="@color/hijau"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelStatusGizi"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <!-- Posisi Menimbang -->
+        <!-- ====== Z-SCORE ====== -->
         <TextView
-            android:id="@+id/tvPosisiMenimbang"
-            android:layout_width="wrap_content"
+            android:id="@+id/labelZBbU"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Berdiri"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/tvBB"
+            android:text="Z-Score BB/U"
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@id/tvLvlRisiko"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"
-            android:paddingTop="21dp"/>
+            app:layout_constraintEnd_toStartOf="@id/labelZTbU"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            android:layout_marginTop="16dp"/>
 
-        <!-- Umur Balita (sejajar kanan posisi menimbang) -->
         <TextView
-            android:id="@+id/tvUmurBalita"
+            android:id="@+id/tvZBbU"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2th 2bln 3hari"
+            android:text="0.08"
+            android:textSize="13sp"
+            android:textColor="@color/hijau"
+            app:layout_constraintTop_toBottomOf="@id/labelZBbU"
+            app:layout_constraintStart_toStartOf="@id/labelZBbU"/>
+
+        <TextView
+            android:id="@+id/labelZTbU"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Z-Score TB/U"
+            android:textSize="13sp"
+            app:layout_constraintTop_toTopOf="@id/labelZBbU"
+            app:layout_constraintStart_toEndOf="@id/labelZBbU"
+            app:layout_constraintEnd_toStartOf="@id/labelZBbTb"/>
+
+        <TextView
+            android:id="@+id/tvZTbU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.31"
+            android:textSize="13sp"
+            android:textColor="@color/hijau"
+            app:layout_constraintTop_toBottomOf="@id/labelZTbU"
+            app:layout_constraintStart_toStartOf="@id/labelZTbU"/>
+
+        <TextView
+            android:id="@+id/labelZBbTb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Z-Score BB/TB"
+            android:textSize="13sp"
+            app:layout_constraintTop_toTopOf="@id/labelZBbU"
+            app:layout_constraintStart_toEndOf="@id/labelZTbU"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvZBbTb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-1.50"
+            android:textSize="13sp"
+            android:textColor="@color/orangetua"
+            app:layout_constraintTop_toBottomOf="@id/labelZBbTb"
+            app:layout_constraintStart_toStartOf="@id/labelZBbTb"/>
+
+        <!-- STATUS STUNTING -->
+        <TextView
+            android:id="@+id/labelStatusStunting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status Stunting"
             android:textSize="14sp"
-            app:layout_constraintTop_toTopOf="@id/tvPosisiMenimbang"
-            app:layout_constraintStart_toEndOf="@id/tvPosisiMenimbang"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="21dp"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tvZBbTb"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"/>
 
+        <TextView
+            android:id="@+id/tvStatusStunting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal"
+            android:textSize="14sp"
+            android:textColor="@color/hijau"
+            app:layout_constraintBaseline_toBaselineOf="@id/labelStatusStunting"
+            app:layout_constraintStart_toEndOf="@id/labelStatusStunting"
+            android:layout_marginStart="8dp"/>
 
-        <!-- Tombol aksi di bawah -->
+        <!-- Tombol -->
         <LinearLayout
             android:id="@+id/buttonLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/tvTB"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp">
+            app:layout_constraintTop_toTopOf="@id/labelStatusStunting"
+            app:layout_constraintBottom_toBottomOf="@id/labelStatusStunting"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <Button
-                android:id="@+id/btnEdit"
+                android:id="@+id/btnLihat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="48dp"
-                android:minHeight="48dp"
-                android:paddingVertical="6dp"
-                android:paddingHorizontal="12dp"
-                android:text="Edit"
+                android:text="Lihat"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/orangetua"
-                android:layout_marginStart="8dp"/>
+                android:backgroundTint="@color/hijau"/>
 
             <Button
-                android:id="@+id/btnGrafik"
+                android:id="@+id/btnHapus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="48dp"
-                android:minHeight="48dp"
-                android:paddingVertical="6dp"
-                android:paddingHorizontal="12dp"
-                android:text="Grafik"
+                android:text="Hapus"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/hijau"
+                android:backgroundTint="@color/merah"
                 android:layout_marginStart="8dp"/>
         </LinearLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

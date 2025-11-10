@@ -22,6 +22,8 @@ class BalitaAdapter(
         val tvBB: TextView? = view.findViewById(R.id.tvBB)
         val tvTB: TextView? = view.findViewById(R.id.tvTB)
         val tvPetugas: TextView? = view.findViewById(R.id.tvPetugas)
+        val tvPosisiMenimbang: TextView? = view.findViewById(R.id.tvPosisiMenimbang)
+        val tvUmurBalita: TextView? = view.findViewById(R.id.tvUmurBalita)
         val btnEdit: Button? = view.findViewById(R.id.btnEdit)
         val btnGrafik: Button? = view.findViewById(R.id.btnGrafik)
     }
@@ -41,6 +43,8 @@ class BalitaAdapter(
         holder.tvBB?.text = balita.beratBadan
         holder.tvTB?.text = balita.tinggiBadan
         holder.tvPetugas?.text = balita.petugas
+        holder.tvPosisiMenimbang?.text = balita.posisiMenimbang
+        holder.tvUmurBalita?.text = balita.umurBalita
 
         holder.detailLayout.visibility = if (balita.expanded) View.VISIBLE else View.GONE
 

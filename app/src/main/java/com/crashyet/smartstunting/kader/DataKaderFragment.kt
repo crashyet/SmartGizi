@@ -12,18 +12,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.crashyet.smartstunting.R
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.ValueFormatter
-
 
 class DataKaderFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: BalitaAdapter
     private val listBalita = mutableListOf<Balita>()
+
+    private lateinit var recyclerViewBalitaResiko: RecyclerView
+    private lateinit var resikoAdapter: BalitaResikoAdapter
+    private val listBalitaResiko = mutableListOf<BalitaResiko>()
 
     private lateinit var tabPengukuran: TextView
     private lateinit var tabResiko: TextView
@@ -35,25 +37,85 @@ class DataKaderFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view = inflater.inflate(R.layout.fragment_data_kader, container, false)
 
-        // Setup RecyclerView
+        // === 1️⃣ Pengukuran (Balita) ===
         recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = BalitaAdapter(listBalita)
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Dummy data
         listBalita.addAll(
             listOf(
-                Balita("Rizky Karangturi", "06 Agustus 2025", "Laki-laki", "14 kg", "101.2 cm", "Ns. Ahmad Fauzi", "Normal", "Gizi Baik"),
-                Balita("Andi Karangturi", "11 Mei 2025", "Laki-laki", "13.5 kg", "99.4 cm", "Ns. Ahmad Fauzi", "Normal", "Gizi Baik")
+                Balita(
+                    "Rizky Karangturi",
+                    "06 Agustus 2025",
+                    "Laki-laki",
+                    "14 kg",
+                    "101.2 cm",
+                    "Ns. Ahmad Fauzi",
+                    "Normal",
+                    "Gizi Baik",
+                    "Terlentang",
+                    "4th 2bln 3hari"
+                ),
+                Balita(
+                    "Andy Karangturi",
+                    "11 Mei 2025",
+                    "Laki-laki",
+                    "13.5 kg",
+                    "98.7 cm",
+                    "Ns. Ahmad Fauzi",
+                    "Normal",
+                    "Gizi Baik",
+                    "Berdiri",
+                    "2th 2bln 3hari"
+                )
             )
         )
         adapter.notifyDataSetChanged()
 
-        // Chart
+        // === 2️⃣ Balita Berisiko ===
+        recyclerViewBalitaResiko = view.findViewById(R.id.recyclerViewBalita)
+        recyclerViewBalitaResiko.layoutManager = LinearLayoutManager(requireContext())
+        resikoAdapter = BalitaResikoAdapter(listBalitaResiko)
+        recyclerViewBalitaResiko.adapter = resikoAdapter
+
+        // Dummy Data Balita Berisiko
+        listBalitaResiko.addAll(
+            listOf(
+                BalitaResiko(
+                    "Eko Gentasari",
+                    "08 Oktober 2025 • 11 bln",
+                    "Laki-laki",
+                    "9 kg",
+                    "80 cm",
+                    "Rendah",
+                    "Gizi Baik",
+                    "0.08",
+                    "2.31",
+                    "-1.50",
+                    "Normal"
+                ),
+                BalitaResiko(
+                    "Siti Munaroh",
+                    "09 Oktober 2025 • 11 bln",
+                    "Perempuan",
+                    "10 kg",
+                    "75 cm",
+                    "AMAN BANG",
+                    "Gizi Baik",
+                    "0.08",
+                    "2.31",
+                    "-1.50",
+                    "SUPER SEHAT"
+                )
+            )
+        )
+        resikoAdapter.notifyDataSetChanged()
+
+        // === 3️⃣ Chart ===
         trendChart = view.findViewById(R.id.TrendPengukuran6bulan)
         setupChart()
 
@@ -63,11 +125,13 @@ class DataKaderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // === Tab Inisialisasi ===
         tabPengukuran = view.findViewById(R.id.tabPengukuran)
         tabResiko = view.findViewById(R.id.tabResiko)
         containerPengukuran = view.findViewById(R.id.containerPengukuran)
         containerResiko = view.findViewById(R.id.containerResiko)
 
+        // Default tampilan tab pertama
         showTabPengukuran()
 
         tabPengukuran.setOnClickListener { showTabPengukuran() }
@@ -93,41 +157,35 @@ class DataKaderFragment : Fragment() {
     }
 
     private fun setupChart() {
-        // Dummy data untuk 6 bulan terakhir
         val entries = mutableListOf<Entry>()
-        val months = listOf("M1","M2","M3","M4","M5","M6")
-        val weights = listOf(12.0f, 12.5f, 13.0f, 13.5f, 14.0f, 14.2f) // contoh berat badan
+        val months = listOf("M1", "M2", "M3", "M4", "M5", "M6")
+        val weights = listOf(12.0f, 12.5f, 13.0f, 13.5f, 14.0f, 14.2f)
 
-        weights.forEachIndexed { index, w ->
-            entries.add(Entry(index.toFloat(), w))
+        weights.forEachIndexed { index, w -> entries.add(Entry(index.toFloat(), w)) }
+
+        val dataSet = LineDataSet(entries, "Berat Badan").apply {
+            color = Color.parseColor("#4CAF50")
+            lineWidth = 2f
+            setDrawCircles(true)
+            setCircleColor(Color.parseColor("#4CAF50"))
+            circleRadius = 4f
+            setDrawValues(true)
+            valueTextColor = Color.DKGRAY
+            valueTextSize = 12f
         }
 
-        val dataSet = LineDataSet(entries, "Berat Badan")
-        dataSet.color = Color.parseColor("#4CAF50") // hijau
-        dataSet.lineWidth = 2f
-        dataSet.setDrawCircles(true)
-        dataSet.setCircleColor(Color.parseColor("#4CAF50"))
-        dataSet.circleRadius = 4f
-        dataSet.setDrawValues(true)
-        dataSet.valueTextColor = Color.DKGRAY
-        dataSet.valueTextSize = 12f
+        trendChart.data = LineData(dataSet)
 
-        val lineData = LineData(dataSet)
-        trendChart.data = lineData
+        trendChart.xAxis.apply {
+            position = XAxis.XAxisPosition.BOTTOM
+            setDrawGridLines(false)
+            granularity = 1f
+            valueFormatter = XAxisValueFormatter(months)
+        }
 
-        // XAxis
-        val xAxis = trendChart.xAxis
-        xAxis.position = XAxis.XAxisPosition.BOTTOM
-        xAxis.setDrawGridLines(false)
-        xAxis.granularity = 1f
-        xAxis.valueFormatter = XAxisValueFormatter(months)
-
-        // YAxis
-        val leftAxis = trendChart.axisLeft
-        val rightAxis = trendChart.axisRight
-        rightAxis.isEnabled = false
-        leftAxis.axisMinimum = 10f
-        leftAxis.axisMaximum = 16f
+        trendChart.axisLeft.axisMinimum = 10f
+        trendChart.axisLeft.axisMaximum = 16f
+        trendChart.axisRight.isEnabled = false
 
         trendChart.description.isEnabled = false
         trendChart.animateY(800)
@@ -139,5 +197,4 @@ class DataKaderFragment : Fragment() {
             return if (value.toInt() in values.indices) values[value.toInt()] else ""
         }
     }
-
 }
