@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="11dp"
+    >
+
+    <!-- ====================== HEADER ====================== -->
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data Pengukuran Balita"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/headerDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tabel interaktif untuk monitoring dan analisis"
+        android:textSize="10sp"
+        android:textColor="@color/dark_gray"/>
+
+    <!-- Garis -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray"
+        android:layout_marginTop="12dp" />
+
+    <!-- ====================== FILTER BAR ====================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="15dp">
+
+        <!-- Button Filter -->
+        <LinearLayout
+            android:id="@+id/btnFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_filter" />
+        </LinearLayout>
+
+        <!-- Field Search -->
+        <LinearLayout
+            android:id="@+id/searchField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_lightgray_border"
+            android:paddingHorizontal="10dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_search"/>
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cari"
+                android:background="@android:color/transparent"
+                android:textSize="12sp"
+                android:paddingStart="6dp"/>
+        </LinearLayout>
+
+        <!-- Jarak 64dp -->
+        <Space
+            android:layout_width="64dp"
+            android:layout_height="1dp" />
+
+        <!-- Tombol Tambah -->
+        <LinearLayout
+            android:id="@+id/btnTambah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_green_rounded">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_plus"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tambah"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_marginStart="6dp"/>
+        </LinearLayout>
+        <!-- Icon titik 3 -->
+        <ImageView
+            android:id="@+id/btnMore"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_more" />
+    </LinearLayout>
+</LinearLayout>

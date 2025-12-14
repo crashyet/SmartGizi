@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/bg_card_balita"
+    android:layout_marginBottom="8dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="25dp"/>
+
+
+    <!-- ======== HEADER (klik untuk buka/tutup detail) ======== -->
+    <LinearLayout
+        android:id="@+id/headerLayoutDataAnak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingVertical="8dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- Foto anak -->
+        <ImageView
+            android:id="@+id/imgBalita"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_circle_light"
+            android:padding="6dp"
+            android:layout_marginEnd="10dp" />
+
+        <!-- Nama + Umur -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNamaBalita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rizky Karangturi"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvUmurBalita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 tahun 2 bulan 4 hari"
+                android:textSize="12sp"
+                android:textColor="@color/dark_gray" />
+        </LinearLayout>
+
+        <!-- Jenis kelamin -->
+        <TextView
+            android:id="@+id/tvJnsKelamin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="8dp"
+            android:text="Laki-laki"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textColor="@color/hijau"
+            android:backgroundTint="@color/tipishijau"
+            android:background="@drawable/bg_status_gizi" />
+    </LinearLayout>
+
+    <!-- ======== DETAIL (expand saat diklik) ======== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailLayoutResiko"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:visibility="gone"
+        android:nestedScrollingEnabled="false"
+        >
+        <!-- ===================== -->
+        <!--   KOLOM KIRI          -->
+        <!-- ===================== -->
+
+        <!-- LABEL NIK -->
+        <TextView
+            android:id="@+id/labelNIK"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="NIK"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@id/labelPosyandu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- tvNIK -->
+        <TextView
+            android:id="@+id/tvNIK"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="3300112201030005"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/labelNIK"
+            app:layout_constraintStart_toStartOf="@id/labelNIK"
+            app:layout_constraintTop_toBottomOf="@id/labelNIK" />
+
+        <!-- LABEL NAMA AYAH -->
+        <TextView
+            android:id="@+id/labelNamaAyah"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Nama Ayah"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/labelNIK"
+            app:layout_constraintStart_toStartOf="@id/labelNIK"
+            app:layout_constraintTop_toBottomOf="@id/tvNIK" />
+
+        <!-- tvNamaAyah -->
+        <TextView
+            android:id="@+id/tvNamaAyah"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Slamet Karangturi"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/labelNamaAyah"
+            app:layout_constraintStart_toStartOf="@id/labelNamaAyah"
+            app:layout_constraintTop_toBottomOf="@id/labelNamaAyah" />
+
+        <!-- ===================== -->
+        <!--   KOLOM KANAN         -->
+        <!-- ===================== -->
+
+        <!-- LABEL POSYANDU -->
+        <TextView
+            android:id="@+id/labelPosyandu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Posyandu"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelNIK"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- tvPosyandu -->
+        <TextView
+            android:id="@+id/tvPosyandu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Cempaka 1"
+            android:textColor="@color/hijau"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/labelPosyandu"
+            app:layout_constraintStart_toStartOf="@id/labelPosyandu"
+            app:layout_constraintTop_toBottomOf="@id/labelPosyandu" />
+
+        <!-- LABEL STATUS -->
+        <TextView
+            android:id="@+id/labelStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Status"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/labelPosyandu"
+            app:layout_constraintStart_toStartOf="@id/labelPosyandu"
+            app:layout_constraintTop_toBottomOf="@id/tvPosyandu" />
+
+        <!-- tvStatus -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Aktif"
+            android:textColor="@color/hijau"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/labelStatus"
+            app:layout_constraintStart_toStartOf="@id/labelStatus"
+            app:layout_constraintTop_toBottomOf="@id/labelStatus" />
+
+        <!-- ===================== -->
+        <!--   BUTTON SECTION      -->
+        <!-- ===================== -->
+
+        <!-- BUTTON HAPUS -->
+        <Button
+            android:id="@+id/btnHapus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_merah"
+            android:text="Hapus"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNamaAyah" />
+
+        <!-- BUTTON UBAH -->
+        <Button
+            android:id="@+id/btnUbah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/bg_greentosca"
+            android:text="Ubah"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            app:layout_constraintEnd_toStartOf="@id/btnHapus"
+            app:layout_constraintTop_toTopOf="@id/btnHapus" />
+
+        <!-- BUTTON LIHAT -->
+        <Button
+            android:id="@+id/btnLihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="Lihat"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_biru"
+
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+
+            app:layout_constraintEnd_toStartOf="@id/btnUbah"
+            app:layout_constraintTop_toTopOf="@id/btnHapus" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
