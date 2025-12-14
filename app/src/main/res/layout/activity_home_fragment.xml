@@ -455,10 +455,11 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/TV_SurveyHariIni"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="10"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="28sp"
                                 android:textStyle="bold" />
@@ -513,9 +514,10 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/TV_SurveyBulanIni"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="20"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="28sp"
                                 android:textStyle="bold"
@@ -524,7 +526,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total survey bulan ini"
+                                android:text="Total data survey \nbulan ini"
                                 android:textSize="12sp"
                                 android:textColor="@color/hijau"
                                 android:layout_marginTop="2dp" />
@@ -579,9 +581,10 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/TV_TotalAnakAktif"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="25"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="28sp"
                                 android:textStyle="bold"
@@ -633,14 +636,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Belum Survey"
-                                android:textStyle="bold"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/TV_BelumSurvey"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="5"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="28sp"
                                 android:textStyle="bold"
@@ -649,7 +652,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Anak yang belum survey hari ini"
+                                android:text="Anak yang belum survey"
                                 android:textSize="12sp"
                                 android:textColor="@color/mybeyellow"
                                 android:layout_marginTop="2dp" />
@@ -704,9 +707,10 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/TV_TotalPengukuran"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="28sp"
                                 android:textStyle="bold"
@@ -715,7 +719,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Anak yang terdaftar aktif"
+                                android:text="Total Pengukuran"
                                 android:textSize="12sp"
                                 android:textColor="@color/pink"
                                 android:layout_marginTop="2dp" />
@@ -762,9 +766,10 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/TV_KasusStunting"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="4"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="28sp"
                                 android:textStyle="bold"
@@ -773,7 +778,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total survey bulan ini"
+                                android:text="Total Kasus Stunting"
                                 android:textSize="12sp"
                                 android:textColor="@color/orange"
                                 android:layout_marginTop="2dp" />

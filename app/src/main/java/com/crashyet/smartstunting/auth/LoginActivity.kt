@@ -37,30 +37,35 @@ class LoginActivity : AppCompatActivity() {
             }
 
             val request = LoginRequest(email, password)
-            ApiClient.instance.loginUser(request)
+//            ApiClient.instance.loginUser(request)
+                ApiClient.getInstance(this).loginUser(request)
                 .enqueue(object : Callback<LoginResponse> {
                     override fun onResponse(
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
 
                     ) {
-                        if (response.isSuccessful && response.body()?.success == true) {
+                        if (response.isSuccessful && response.body()?.message == "Login berhasil") {
                             val user = response.body()?.user
                             val role = user?.role
 
-                            Toast.makeText(this@LoginActivity, "Selamat datang ${user?.name}", Toast.LENGTH_LONG).show()
+
+                            Toast.makeText(this@LoginActivity, "Selamat datang ${user?.nama_lengkap}", Toast.LENGTH_LONG).show()
 
                             // Simpan token + role ke SharedPreferences
                             val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
                             with(sharedPref.edit()) {
                                 putString("token", response.body()?.token)
-                                putString("role", role)
+                                putInt("user_id", user?.user_id ?: 0)
+                                putString("nama_lengkap", user?.nama_lengkap)
+                                putString("email", user?.email)
+                                putString("role", user?.role)
                                 apply()
                             }
 
                             // Arahkan ke halaman sesuai role
                             when (role) {
-                                "admin" -> {
+                                "petugas_puskesmas" -> {
                                     val intent = Intent(this@LoginActivity, AdminBaseLayout::class.java)
                                     startActivity(intent)
                                 }
@@ -72,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
 //                                    val intent = Intent(this@LoginActivity, UserActivity::class.java)
 //                                    startActivity(intent)
 //                                }
-                                else -> Toast.makeText(this@LoginActivity, "Role tidak dikenali", Toast.LENGTH_SHORT).show()
+                                else -> Toast.makeText(this@LoginActivity, "User Tidak Ditemukan!", Toast.LENGTH_SHORT).show()
                             }
 
                             finish()

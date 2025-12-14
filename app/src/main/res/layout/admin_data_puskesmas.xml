@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F6F5"
+    android:background="#ffffff"
     tools:context=".admin.data.DataPuskesmas">
 
     <!-- ======================
@@ -74,63 +74,6 @@
                 android:layout_marginBottom="106dp"
                 android:layout_marginHorizontal="24dp"
                 android:orientation="vertical">
-                <LinearLayout
-                    android:id="@+id/r1nqvscgjprl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginHorizontal="11dp"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        />
-                    <LinearLayout
-                        android:id="@+id/r5la2wx3pnso"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:id="@+id/r3977rzntoge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/s87878fsw1cr4"
-                            android:paddingVertical="4dp"
-                            android:layout_marginEnd="12dp"
-                            android:orientation="horizontal">
-                            <com.google.android.material.imageview.ShapeableImageView
-                                android:id="@+id/rnia6r5spum"
-                                app:shapeAppearanceOverlay="@style/cr4"
-                                android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginEnd="6dp"
-                                android:src="@mipmap/ic_launcher"
-                                android:scaleType="fitXY"
-                                />
-                            <TextView
-                                android:id="@+id/rgjih16nb58"
-                                android:textColor="#87878F"
-                                android:textSize="10sp"
-                                android:layout_marginEnd="103dp"
-                                android:layout_height="wrap_content"
-                                android:layout_width="wrap_content"
-                                android:text="Cari"
-                                />
-                        </LinearLayout>
-                        <ImageView
-                            android:id="@+id/rmteik18pf4a"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:src="@mipmap/ic_launcher"
-                            android:scaleType="fitXY"
-                            />
-                    </LinearLayout>
-                </LinearLayout>
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/rhuf0kkhzr6"
                     app:shapeAppearanceOverlay="@style/cr12"
