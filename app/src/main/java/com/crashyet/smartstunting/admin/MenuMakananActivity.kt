@@ -1,4 +1,4 @@
-package com.crashyet.smartstunting.admin.pengukuran
+package com.crashyet.smartstunting.admin
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,21 +6,22 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.crashyet.smartstunting.R
 
-class BalitaBerisiko : AppCompatActivity() {
-
+class MenuMakananActivity : AppCompatActivity() {
     private lateinit var webView: WebView
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.admin_balita_berisiko)
-
+//        enableEdgeToEdge()
+        setContentView(R.layout.activity_menu_makanan)
         webView = findViewById(R.id.webview)
 
-        // === WebView settings ===
         webView.settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true
@@ -45,7 +46,7 @@ class BalitaBerisiko : AppCompatActivity() {
         }
 
         // === AUTO LOGIN + REDIRECT KE TABEL ===
-        val url = "https://smart-stunting.com/mobile-login?remember_token=$token&to=balita_berisiko"
+        val url = "https://smart-stunting.com/mobile-login?remember_token=$token&to=menu_makanan"
         webView.loadUrl(url)
     }
 

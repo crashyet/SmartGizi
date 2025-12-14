@@ -7,8 +7,7 @@
     android:padding="12dp"
     tools:context=".admin.UserFragment">
 
-    <!-- 🔹 Tombol Filter dan Tambah Kolom -->
-    <LinearLayout
+    <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -34,7 +33,6 @@
             android:textColor="@color/black"/>
     </LinearLayout>
 
-    <!-- 🔹 RecyclerView dengan Scroll Horizontal -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -50,7 +48,6 @@
             android:overScrollMode="never"/>
     </HorizontalScrollView>
 
-    <!-- 🔹 Navigasi Halaman -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,6 +74,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Selanjutnya"/>
-    </LinearLayout>
+    </LinearLayout> -->
 
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="48dp"/>
 </LinearLayout>

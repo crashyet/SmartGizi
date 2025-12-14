@@ -43,10 +43,10 @@ class ViewAllMenu : AppCompatActivity() {
         val gizi = findViewById<LinearLayout>(R.id.gizi)
         val sanitasiLingkungan = findViewById<LinearLayout>(R.id.sanitasi_lingkungan)
         val menuMakanan = findViewById<LinearLayout>(R.id.menu_makanan)
-        val rekomendasiGizi = findViewById<LinearLayout>(R.id.rekomendasi_gizi)
         val riwayatMenu = findViewById<LinearLayout>(R.id.riwayat_menu)
-        val laporanBulanan = findViewById<LinearLayout>(R.id.laporan_bulanan)
-        val prevalensiWilayah = findViewById<LinearLayout>(R.id.prevalensi_wilayah)
+//        val rekomendasiGizi = findViewById<LinearLayout>(R.id.rekomendasi_gizi)
+//        val laporanBulanan = findViewById<LinearLayout>(R.id.laporan_bulanan)
+//        val prevalensiWilayah = findViewById<LinearLayout>(R.id.prevalensi_wilayah)
 
         backButton.setOnClickListener { finish() }
 
@@ -92,6 +92,31 @@ class ViewAllMenu : AppCompatActivity() {
 
         dataPuskesmas.setOnClickListener {
             val intent = Intent(this, DataPuskesmas::class.java)
+            startActivity(intent)
+        }
+
+        surveyHarian.setOnClickListener {
+            val intent = Intent(this, AdminSurveyHarianActivity::class.java)
+            startActivity(intent)
+        }
+
+        gizi.setOnClickListener {
+            val intent = Intent(this, AdminGiziActivity::class.java)
+            startActivity(intent)
+        }
+
+        sanitasiLingkungan.setOnClickListener {
+            val intent = Intent(this, SanitasiLingkunganActivity::class.java)
+            startActivity(intent)
+        }
+
+        menuMakanan.setOnClickListener {
+            val intent = Intent(this, MenuMakananActivity::class.java)
+            startActivity(intent)
+        }
+
+        riwayatMenu.setOnClickListener {
+            val intent = Intent(this, RiwayatMenuActivity::class.java)
             startActivity(intent)
         }
 
