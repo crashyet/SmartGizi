@@ -1,200 +1,91 @@
 package com.crashyet.smartstunting.kader
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import android.widget.TextView
+import android.graphics.Typeface
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.crashyet.smartstunting.R
-import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.data.Entry
-import com.github.mikephil.charting.data.LineData
-import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.formatter.ValueFormatter
 
 class DataKaderFragment : Fragment() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: BalitaAdapter
-    private val listBalita = mutableListOf<Balita>()
+    private lateinit var tabAnak: TextView
+    private lateinit var tabKeluarga: TextView
+    private lateinit var tabKader: TextView
+    private lateinit var tabPosyandu: TextView
 
-    private lateinit var recyclerViewBalitaResiko: RecyclerView
-    private lateinit var resikoAdapter: BalitaResikoAdapter
-    private val listBalitaResiko = mutableListOf<BalitaResiko>()
-
-    private lateinit var tabPengukuran: TextView
-    private lateinit var tabResiko: TextView
-    private lateinit var containerPengukuran: View
-    private lateinit var containerResiko: View
-
-    private lateinit var trendChart: LineChart
+    private lateinit var scrollAnak: ScrollView
+    private lateinit var scrollKeluarga: ScrollView
+    private lateinit var scrollKader: ScrollView
+    private lateinit var scrollPosyandu: ScrollView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
+
         val view = inflater.inflate(R.layout.fragment_data_kader, container, false)
 
-        // === 1️⃣ Pengukuran (Balita) ===
-        recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = BalitaAdapter(listBalita)
-        recyclerView.adapter = adapter
+        // Tabs
+        tabAnak = view.findViewById(R.id.tabAnak)
+        tabKeluarga = view.findViewById(R.id.tabKeluarga)
+        tabKader = view.findViewById(R.id.tabKader)
+        tabPosyandu = view.findViewById(R.id.tabPosyandu)
 
-        listBalita.addAll(
-            listOf(
-                Balita(
-                    "Rizky Karangturi",
-                    "06 Agustus 2025",
-                    "Laki-laki",
-                    "14 kg",
-                    "101.2 cm",
-                    "Ns. Ahmad Fauzi",
-                    "Normal",
-                    "Gizi Baik",
-                    "Terlentang",
-                    "4th 2bln 3hari"
-                ),
-                Balita(
-                    "Andy Karangturi",
-                    "11 Mei 2025",
-                    "Laki-laki",
-                    "13.5 kg",
-                    "98.7 cm",
-                    "Ns. Ahmad Fauzi",
-                    "Normal",
-                    "Gizi Baik",
-                    "Berdiri",
-                    "2th 2bln 3hari"
-                )
-            )
-        )
-        adapter.notifyDataSetChanged()
+        // ScrollViews
+        scrollAnak = view.findViewById(R.id.scrollAnak)
+        scrollKeluarga = view.findViewById(R.id.scrollKeluarga)
+        scrollKader = view.findViewById(R.id.scrollKader)
+        scrollPosyandu = view.findViewById(R.id.scrollPosyandu)
 
-        // === 2️⃣ Balita Berisiko ===
-        recyclerViewBalitaResiko = view.findViewById(R.id.recyclerViewBalita)
-        recyclerViewBalitaResiko.layoutManager = LinearLayoutManager(requireContext())
-        resikoAdapter = BalitaResikoAdapter(listBalitaResiko)
-        recyclerViewBalitaResiko.adapter = resikoAdapter
-
-        // Dummy Data Balita Berisiko
-        listBalitaResiko.addAll(
-            listOf(
-                BalitaResiko(
-                    "Eko Gentasari",
-                    "08 Oktober 2025 • 11 bln",
-                    "Laki-laki",
-                    "9 kg",
-                    "80 cm",
-                    "Rendah",
-                    "Gizi Baik",
-                    "0.08",
-                    "2.31",
-                    "-1.50",
-                    "Normal"
-                ),
-                BalitaResiko(
-                    "Siti Munaroh",
-                    "09 Oktober 2025 • 11 bln",
-                    "Perempuan",
-                    "10 kg",
-                    "75 cm",
-                    "AMAN BANG",
-                    "Gizi Baik",
-                    "0.08",
-                    "2.31",
-                    "-1.50",
-                    "SUPER SEHAT"
-                )
-            )
-        )
-        resikoAdapter.notifyDataSetChanged()
-
-        // === 3️⃣ Chart ===
-        trendChart = view.findViewById(R.id.TrendPengukuran6bulan)
-        setupChart()
-
+        initTabs()
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun initTabs() {
+        tabAnak.setOnClickListener { selectTab(tabAnak) }
+        tabKeluarga.setOnClickListener { selectTab(tabKeluarga) }
+        tabKader.setOnClickListener { selectTab(tabKader) }
+        tabPosyandu.setOnClickListener { selectTab(tabPosyandu) }
 
-        // === Tab Inisialisasi ===
-        tabPengukuran = view.findViewById(R.id.tabPengukuran)
-        tabResiko = view.findViewById(R.id.tabResiko)
-        containerPengukuran = view.findViewById(R.id.containerPengukuran)
-        containerResiko = view.findViewById(R.id.containerResiko)
-
-        // Default tampilan tab pertama
-        showTabPengukuran()
-
-        tabPengukuran.setOnClickListener { showTabPengukuran() }
-        tabResiko.setOnClickListener { showTabResiko() }
+        // Default: Anak
+        selectTab(tabAnak)
     }
 
-    private fun showTabPengukuran() {
-        containerPengukuran.visibility = View.VISIBLE
-        containerResiko.visibility = View.GONE
-        tabPengukuran.setBackgroundResource(R.drawable.bg_hijautoska)
-        tabPengukuran.setTextColor(Color.WHITE)
-        tabResiko.setBackgroundResource(R.color.white)
-        tabResiko.setTextColor(Color.DKGRAY)
-    }
+    private fun selectTab(selected: TextView) {
+        val tabs = listOf(tabAnak, tabKeluarga, tabKader, tabPosyandu)
 
-    private fun showTabResiko() {
-        containerPengukuran.visibility = View.GONE
-        containerResiko.visibility = View.VISIBLE
-        tabResiko.setBackgroundResource(R.drawable.bg_hijautoska)
-        tabResiko.setTextColor(Color.WHITE)
-        tabPengukuran.setBackgroundResource(R.color.white)
-        tabPengukuran.setTextColor(Color.DKGRAY)
-    }
-
-    private fun setupChart() {
-        val entries = mutableListOf<Entry>()
-        val months = listOf("M1", "M2", "M3", "M4", "M5", "M6")
-        val weights = listOf(12.0f, 12.5f, 13.0f, 13.5f, 14.0f, 14.2f)
-
-        weights.forEachIndexed { index, w -> entries.add(Entry(index.toFloat(), w)) }
-
-        val dataSet = LineDataSet(entries, "Berat Badan").apply {
-            color = Color.parseColor("#4CAF50")
-            lineWidth = 2f
-            setDrawCircles(true)
-            setCircleColor(Color.parseColor("#4CAF50"))
-            circleRadius = 4f
-            setDrawValues(true)
-            valueTextColor = Color.DKGRAY
-            valueTextSize = 12f
+        // Ganti background tab
+        tabs.forEach { tab ->
+            if (tab == selected) {
+                tab.setBackgroundResource(R.drawable.bg_toskabulat)
+                tab.setTextColor(requireContext().getColor(android.R.color.white))
+                tab.setTypeface(null,Typeface.BOLD)
+            } else {
+                tab.setBackgroundResource(android.R.color.white)
+                tab.setTextColor(requireContext().getColor(R.color.dark_gray))
+                tab.setTypeface(null, Typeface.NORMAL)
+            }
         }
 
-        trendChart.data = LineData(dataSet)
-
-        trendChart.xAxis.apply {
-            position = XAxis.XAxisPosition.BOTTOM
-            setDrawGridLines(false)
-            granularity = 1f
-            valueFormatter = XAxisValueFormatter(months)
+        // Tampilkan ScrollView sesuai tab
+        when (selected.id) {
+            R.id.tabAnak -> showOnly(scrollAnak)
+            R.id.tabKeluarga -> showOnly(scrollKeluarga)
+            R.id.tabKader -> showOnly(scrollKader)
+            R.id.tabPosyandu -> showOnly(scrollPosyandu)
         }
-
-        trendChart.axisLeft.axisMinimum = 10f
-        trendChart.axisLeft.axisMaximum = 16f
-        trendChart.axisRight.isEnabled = false
-
-        trendChart.description.isEnabled = false
-        trendChart.animateY(800)
-        trendChart.invalidate()
     }
 
-    class XAxisValueFormatter(private val values: List<String>) : ValueFormatter() {
-        override fun getFormattedValue(value: Float): String {
-            return if (value.toInt() in values.indices) values[value.toInt()] else ""
+    private fun showOnly(selectedScroll: ScrollView) {
+        val allScrolls = listOf(scrollAnak, scrollKeluarga, scrollKader, scrollPosyandu)
+
+        allScrolls.forEach { scroll ->
+            scroll.visibility = if (scroll == selectedScroll) View.VISIBLE else View.GONE
         }
     }
 }

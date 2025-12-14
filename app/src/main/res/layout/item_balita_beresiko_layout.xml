@@ -8,23 +8,53 @@
     >
 
     <!-- ====================== HEADER ====================== -->
-    <TextView
-        android:id="@+id/headerTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Data Pengukuran Balita"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp">
 
-    <TextView
-        android:id="@+id/headerDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tabel interaktif untuk monitoring dan analisis"
-        android:textSize="10sp"
-        android:textColor="@color/dark_gray"/>
+        <!-- Header di kiri -->
+        <TextView
+            android:id="@+id/headerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data Pengukuran Balita"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <!-- Tombol Tambah di kanan -->
+        <LinearLayout
+            android:id="@+id/btnExport"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_green_rounded">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_export"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eksport"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_marginStart="6dp"/>
+        </LinearLayout>
+    </LinearLayout>
     <!-- Garis -->
     <View
         android:layout_width="match_parent"
@@ -38,8 +68,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="15dp">
+        android:layout_marginTop="12dp">
 
         <!-- Button Filter -->
         <LinearLayout
@@ -81,41 +110,9 @@
                 android:paddingStart="6dp"/>
         </LinearLayout>
 
-        <!-- Jarak 64dp -->
+        <!-- Biar nggak mentok -->
         <Space
-            android:layout_width="64dp"
+            android:layout_width="191dp"
             android:layout_height="1dp" />
-
-        <!-- Tombol Tambah -->
-        <LinearLayout
-            android:id="@+id/btnTambah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="14dp"
-            android:gravity="center_vertical"
-            android:background="@drawable/bg_green_rounded">
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/ic_plus"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tambah"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="12sp"
-                android:layout_marginStart="6dp"/>
-        </LinearLayout>
-        <!-- Icon titik 3 -->
-        <ImageView
-            android:id="@+id/btnMore"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/ic_more" />
     </LinearLayout>
 </LinearLayout>

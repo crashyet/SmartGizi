@@ -31,8 +31,8 @@
         <!-- Info utama -->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -53,19 +53,33 @@
                 android:textSize="12sp"/>
         </LinearLayout>
 
-        <!-- Status gizi -->
-        <TextView
-            android:id="@+id/tvStatus"
+        <!-- Status gizi + Gizi di bawahnya -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingVertical="4dp"
-            android:paddingHorizontal="8dp"
-            android:text="Normal"
-            android:textColor="@color/hijau"
-            android:textSize="12sp"
-            android:backgroundTint="@color/tipishijau"
-            android:background="@drawable/bg_status_gizi"
-            android:textStyle="bold"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="4dp"
+                android:paddingHorizontal="8dp"
+                android:text="Normal"
+                android:textColor="@color/hijau"
+                android:textSize="12sp"
+                android:backgroundTint="@color/tipishijau"
+                android:background="@drawable/bg_status_gizi"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvGizi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gizi Baik"
+                android:textSize="13sp"
+                android:textColor="@color/hijau"/>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- ======== DETAIL (expand saat diklik) ======== -->
@@ -80,7 +94,7 @@
         <!-- BB -->
         <TextView
             android:id="@+id/labelBB"
-            android:layout_width="0dp"
+            android:layout_width="57dp"
             android:layout_height="wrap_content"
             android:text="BB"
             android:textSize="13sp"
@@ -102,7 +116,7 @@
         <!-- TB -->
         <TextView
             android:id="@+id/labelTB"
-            android:layout_width="0dp"
+            android:layout_width="76dp"
             android:layout_height="wrap_content"
             android:text="TB"
             android:textSize="13sp"
@@ -125,44 +139,21 @@
             android:id="@+id/labelPetugas"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Level Risiko"
+            android:text="Petugas"
             android:textSize="13sp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/labelTB"
-            app:layout_constraintEnd_toStartOf="@id/tvGizi"/>
+            app:layout_constraintStart_toEndOf="@id/labelTB"/>
 
         <TextView
             android:id="@+id/tvPetugas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rendah"
+            android:text="Dr. Lorem"
             android:textSize="13sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/labelPetugas"
             app:layout_constraintStart_toStartOf="@id/labelPetugas"/>
 
-        <TextView
-            android:id="@+id/labelStatusGizi"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Level Risiko"
-            android:textSize="13sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/labelTB"
-            app:layout_constraintEnd_toStartOf="@id/tvGizi"/>
-
-        <!-- Status Gizi -->
-        <TextView
-            android:id="@+id/tvGizi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gizi Baik"
-            android:textSize="13sp"
-            android:textColor="@color/hijau"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <!-- Posisi Menimbang -->
         <TextView
             android:id="@+id/tvPosisiMenimbang"
             android:layout_width="wrap_content"
